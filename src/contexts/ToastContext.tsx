@@ -2,7 +2,7 @@
 import { createContext, useContext, ReactNode } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-export type ToastType = "success" | "error" | "info";
+export type ToastType = "success" | "error" | "info" | "warning";
 
 type ToastContextType = {
   addToast: (message: string, type?: ToastType) => void;
@@ -22,6 +22,20 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       case "info":
         toast(message, {
           icon: "ℹ️",
+        });
+        break;
+      case "warning":
+        toast(message, {
+          icon: "⚠️",
+          style: {
+            background: "#f59e0b",
+            color: "#fff",
+          },
+          iconTheme: {
+            primary: "#fff",
+            secondary: "#f59e0b",
+          },
+          duration: 4000,
         });
         break;
     }

@@ -34,9 +34,9 @@ const apiRequest = async <T>(
 ): Promise<ApiResponse<T>> => {
   const token = getToken();
   
-  const headers: HeadersInit = {
+  const headers: Record<string, string> = {
     'Content-Type': 'application/json',
-    ...options.headers,
+    ...(options.headers as Record<string, string> || {}),
   };
 
   if (token) {
@@ -174,7 +174,13 @@ export const api = {
     },
 
     getById: async (id: string) => {
-      const response = await apiRequest<{ attempt: any; questions: any[] }>(`/attempts/${id}`);
+      const response = await apiRequest<{ 
+        attempt: any; 
+        questions: any[];
+        test?: {
+          instructions?: string[];
+        };
+      }>(`/attempts/${id}`);
       return response;
     },
 

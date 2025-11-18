@@ -437,7 +437,7 @@ export default function Home() {
               { name: 'Sana', text: 'Affordable and high quality content. Highly recommend.' },
             ].map((t) => (
               <div key={t.name} className="card p-9 border border-gray-200 rounded-2xl">
-                <div className="text-xl font-bold text-gray-900 mb-3 leading-relaxed">"{t.text}"</div>
+                <div className="text-xl font-bold text-gray-900 mb-3 leading-relaxed">&ldquo;{t.text}&rdquo;</div>
                 <div className="text-gray-600 text-base">— {t.name}</div>
               </div>
             ))}

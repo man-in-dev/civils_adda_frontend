@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/contexts/ToastContext";
@@ -7,7 +7,7 @@ import { useCart } from "@/contexts/CartContext";
 import { api } from "@/utils/api";
 import Link from "next/link";
 
-export default function PaymentSuccessPage() {
+function PaymentSuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isAuthenticated } = useAuth();
@@ -120,6 +120,26 @@ export default function PaymentSuccessPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function PaymentSuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-[calc(100vh-80px)] bg-gray-50 py-12 px-6">
+          <div className="container max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+              <h1 className="text-2xl font-bold text-gray-900 mb-2">Loading...</h1>
+              <p className="text-gray-600">Please wait...</p>
+            </div>
+          </div>
+        </main>
+      }
+    >
+      <PaymentSuccessContent />
+    </Suspense>
   );
 }
 

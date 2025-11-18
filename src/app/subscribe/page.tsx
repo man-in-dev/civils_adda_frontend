@@ -79,7 +79,7 @@ export default function SubscribePage() {
 
           <div style={{ marginBottom: '32px' }}>
             <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: 'var(--gray-900)' }}>
-              What's included:
+              What{`'`}s included:
             </h3>
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {[

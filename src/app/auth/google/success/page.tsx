@@ -1,10 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useToast } from "@/contexts/ToastContext";
 import { setToken } from "@/utils/api";
 
-export default function GoogleAuthSuccessPage() {
+function GoogleAuthSuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { addToast } = useToast();
@@ -44,6 +44,23 @@ export default function GoogleAuthSuccessPage() {
         <p className="text-gray-600">Completing sign in...</p>
       </div>
     </main>
+  );
+}
+
+export default function GoogleAuthSuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-[calc(100vh-80px)] bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mb-4"></div>
+            <p className="text-gray-600">Loading...</p>
+          </div>
+        </main>
+      }
+    >
+      <GoogleAuthSuccessContent />
+    </Suspense>
   );
 }
 

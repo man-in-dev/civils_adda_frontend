@@ -573,7 +573,7 @@ export default function AttemptPage() {
                   <div>
                     <h3 className="font-bold text-yellow-900 mb-2">Please Note:</h3>
                     <ul className="text-yellow-800 space-y-1 text-sm sm:text-base">
-                      <li>• The timer will start as soon as you click "Start Test"</li>
+                      <li>• The timer will start as soon as you click &ldquo;Start Test&rdquo;</li>
                       <li>• You cannot pause the test once started</li>
                       <li>• Make sure you have a stable internet connection</li>
                       <li>• Do not refresh the page during the test</li>

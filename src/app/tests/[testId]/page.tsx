@@ -253,7 +253,7 @@ export default function TestDetailPage() {
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <span className="text-blue-500">✨</span>
-                What You'll Get
+                What You{`'`}ll Get
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {data.test.highlights.map((highlight, index) => (

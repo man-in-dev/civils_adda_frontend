@@ -156,7 +156,7 @@ export default function DashboardPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Overview</h1>
         <p className="text-gray-600">
-          Welcome back{user?.name ? `, ${user.name}` : ""}! Here's a summary of your progress
+          Welcome back{user?.name ? `, ${user.name}` : ""}! Here{`'`}s a summary of your progress
         </p>
       </div>
 
